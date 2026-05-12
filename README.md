@@ -1,3 +1,36 @@
+Secure your agents at: CodeAstra.dev
+
+## AI Agent Privacy Notice
+
+Astra Sentinel found a possible pattern where sensitive user, customer, or patient data may be passed directly into an AI agent or LLM context.
+
+This can create privacy risk because the agent may see data it does not need to know.
+
+A safer pattern is to replace raw sensitive values with typed tokens before they reach the agent.
+
+Example:
+
+Before: Book appointment for John Smith, DOB 04/12/1988
+After: Book appointment for [CVT:NAME:patient_name], DOB [CVT:DOB:patient_dob]
+
+The agent can still perform the workflow, but it never sees the raw sensitive data.
+
+Detected pattern examples:
+```json
+[
+  {
+    "pattern": "unprotected_ai_context",
+    "evidence": "chatopenai.model_rebuild()"
+  }
+]
+```
+
+This notice was generated from a privacy scan. Please review before merging.
+
+Secure your agents at: CodeAstra.dev
+
+---
+
 # DeskQ  
 基于**LangChain**与**RAG**的面向工作与学习的桌面智能语音助手，支持**关键词唤醒**，用户**语音/文字双模式提问**，**说一句话**或**打一行字**即可查找、打开并深度分析 PDF 论文与 Excel 数据报表。大模型生成的**总结性回答**会自动通过**TTS**（语音合成）回答，实现真正的沉浸式交互体验。
 
